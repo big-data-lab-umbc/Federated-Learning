@@ -1,11 +1,11 @@
 # Federated-Learning-With-Tree-Structure
 
 # Requirements  
-
-python3.5
+  
+python3.5  
 treelib  
 Keras==2.2.3  
-flask-socketio 
+flask-socketio  
 python-socketio
 python-engineio 
 numpy==1.18.0
