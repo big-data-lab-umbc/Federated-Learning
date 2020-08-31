@@ -1,17 +1,18 @@
-# Federated-Learning-With_Tree-Structure
+# Federated-Learning-With-Tree-Structure
 
 # Requirements  
 
-pip3 install treelib  
-pip3 install Keras  
-pip3 install flask-socketio 
-pip3 install python-socketio
-pip3 install python-engineio 
-pip3 install numpy  
-pip3 install msgpack-numpy  
-pip3 install socketIO-client  
-pip3 install tensorflow  
-(pip3 install tensorflow==1.5.0)  
+python3.5
+treelib  
+Keras==2.2.3  
+flask-socketio 
+python-socketio
+python-engineio 
+numpy==1.18.0
+scipy==1.4.0
+msgpack-numpy  
+socketIO-client  
+tensorflow==1.10.0  
 
 # How to run  
 
