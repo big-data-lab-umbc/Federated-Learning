@@ -19,7 +19,13 @@ class Mnist(DataSource):
     MAX_NUM_CLASSES_PER_CLIENT = 5
     
     def __init__(self):
-        (x_train, y_train), (x_test, y_test) = mnist.load_data()
+        mnistdata = np.load('./mnist.npz')
+        x_train = mnistdata['x_train']
+        y_train = mnistdata['y_train']
+        x_test = mnistdata['x_test']
+        y_test = mnistdata['y_test']
+
+        #(x_train, y_train), (x_test, y_test) = mnist.load_data()
         self.x = np.concatenate([x_train, x_test]).astype('float')
         self.y = np.concatenate([y_train, y_test])
         n = self.x.shape[0]
@@ -106,9 +112,19 @@ class Mnist(DataSource):
 
 
 if __name__ == "__main__":
-    m = Mnist()
-    # res = m.partitioned_by_rows(9)
-    # print(res["test"][1].shape)
-    for _ in range(10):
-        print(m.gen_dummy_non_iid_weights())
+    # m = Mnist()
+    # # res = m.partitioned_by_rows(9)
+    # # print(res["test"][1].shape)
+    # for _ in range(10):
+    #     print(m.gen_dummy_non_iid_weights())
 
+    fake_data, my_class_distr = Mnist().fake_non_iid_data(min_train=100,max_train=100,data_split=(0.6, 0.3, 0.1))
+    train_set, test_set, valid_set = fake_data
+    x_train = np.array([tup[0] for tup in train_set])
+    y_train = np.array([tup[1] for tup in train_set])
+    x_test = np.array([tup[0] for tup in test_set])
+    y_test = np.array([tup[1] for tup in test_set])
+    x_valid = np.array([tup[0] for tup in valid_set])
+    y_valid = np.array([tup[1] for tup in valid_set])
+
+    print(y_valid)
